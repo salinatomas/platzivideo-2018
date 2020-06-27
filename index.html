@@ -7,7 +7,7 @@
   <script src="https://kit.fontawesome.com/9890831b37.js" crossorigin="anonymous"></script>
   <link rel="icon" type="image/png" href="/static/images/platzi_favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/css/styles.min.css">
+  <link rel="stylesheet" href="static/css/styles.css">
 </head>
 <body>
   <button class="menu">
@@ -68,15 +68,15 @@
           </div>
           <div class="info_options">
             <div class="options_manage">
-              <button>Agrega a mi lista</button>
-              <a href="./">
+              <button class="manage_button">Agrega a mi lista</button>
+              <button class="manage_button-secondary" id="shareButton">
                 <i class="fas fa-share"></i> 
                 <span>Compartir</span>
-              </a>
-              <a href="./">
+              </button>
+              <button class="manage_button-secondary">
                 <i class="fas fa-cloud-download-alt"></i>
                 <span>Guardar</span> 
-              </a>
+              </button>
             </div>
             <div class="option_category">
               <ul>
@@ -149,6 +149,31 @@
     </main>
   </div>
   <script>
+    const shareButton = document.querySelector('#shareButton')
+
+    if ('share' in navigator) {
+      shareButton.addEventListener('click', shareFn) 
+
+      function shareFn () {
+        navigator.share({
+          title: 'PlatziVideo 2018',
+          text: 'Probando Web Share API',
+          url: 'https://youtu.be/uETaGxrAtYo',
+        })
+        .then(()=>{
+          alert('Compartido con exito')
+        })
+        .catch(()=>{
+          alert('¿No pudiste compartir? Prueba usando un navegador móvil')
+        })
+      }
+    } else {
+      shareButton.addEventListener('click', () => {
+        alert('La opción compartir no está disponible, prueba usando un navegador móvil.')
+      }) 
+    }
+    
+
     const sidebar = document.querySelector('.aside')
     const menuButton = document.querySelector('#burger-menu')
 

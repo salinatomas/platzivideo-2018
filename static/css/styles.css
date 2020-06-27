@@ -152,7 +152,7 @@ body {
 .options_manage {
   display: flex;
 }
-.options_manage button {
+.manage_button {
   background-image: var(--button-gradient);
   color: var(--white-color);
   font-size: 1em;
@@ -163,18 +163,25 @@ body {
   cursor: pointer;
   outline: none;
 }
-.options_manage button:hover {
+.manage_button:hover {
   box-shadow: 0 0 5px #6aa71f;
 }
 .options_manage a {
+
+}
+.manage_button-secondary {
   color: var(--grey-color);
   display: grid;
   align-items: center;
   justify-items: center;
-  text-decoration: none;
   margin: 0 10px;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  cursor: pointer;
 }
-.options_manage a:hover {
+.manage_button-secondary:hover {
   color: var(--hover-dark-blue);
 }
 .option_category {
@@ -332,10 +339,10 @@ body {
   .option_category ul li:nth-child(1) {
     margin-left: 0;
   }
-  .options_manage button {
+  .manage_button {
     margin-right: 5px;
   }
-  .options_manage a {
+  .manage_button-secondary {
     margin: 0 5px;
   }
 }
@@ -449,7 +456,7 @@ body {
   .options_manage {
     margin-bottom: 10px;
   }
-  .options_manage button {
+  .manage_button {
     margin-right: 5px;
   }
   
@@ -478,16 +485,17 @@ body {
     row-gap: 20px;
     padding: 20px 0;
   }
-  .options_manage button {
+  .manage_button {
     padding: 5px;
   }
-  .options_manage a {
+  .manage_button-secondary {
     margin: 0 5px;
     font-size: 10px;
   }
   .option_category ul li {
     width: 60px;
     margin-right: 5px;
+    font-size: 10px;
   }
 
   .aside {
